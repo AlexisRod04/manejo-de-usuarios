@@ -1,0 +1,56 @@
+Usuarios:
+- usuarios del sistema
+- usuarios comunes
+
+los usuarios se almacenan en el directorio /etc/passwd
+dentro de etc/passwd:
+- primer campo: login de usuario
+- segundo campo: contraseña, siempre representada por una x
+- tercer campo: user id
+- cuarto campo: gID es el identificador de grupo
+- quinto campo: comentario, por lo general se pone el nombre completo del usuario
+- sexto campo: el directorio hogar del usuario
+- septimo campo: shell del usuario
+
+cada vez que se crea un usuario, se crea un grupo con su mismo nombre si no se le ha asignado uno
+
+en /etc/shadow
+
+Grupos:
+- un usuario debe pertenecer al menos a un grupo
+/etc/group
+
+todo debe hacerse desde root ---->
+
+comandos grupos
+groupadd "grupo"
+	- crea un grupo
+	
+useradd -u 100* -g grupo -c "comentario" -m -d dir_hogar -s /bin/bash login de usuario
+	- crea un usuario
+	
+adduser login
+	- crea un usuarios
+
+para cambiar la contraseña desde root:
+passwd "nombre de usuario"
+si no se agrega usuario, cambia la de root
+si se borra el parametro -m, el directorio hogar se especifico pero no se creo
+para solucionarlo, el root puede crear directamente el directorio home que se le asigno
+para asignar al usuario como dueño de su propio home, se utiliza el comando chown
+chown usuario_prueba:papus /dir/home
+
+eliminar usuario
+userdel login
+deluser
+
+eliminar grupo
+groupdel
+
+cambiar inforamcion del usuario
+usermod opciones usuario
+
+chfn opciones usuario
+
+chsh opciones login
+
