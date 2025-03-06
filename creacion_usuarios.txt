@@ -1,0 +1,42 @@
+Administracion de servidores
+actividad de creacion y manejo de usuarios
+
+Todo esto desde root ---------->
+
+Crear grupos
+groupadd caseros
+groupadd insectos
+groupadd looney
+groupadd simpsons
+
+crear usuarios
+useradd -c "Pato" -m -d /home/pato -g caseros pato
+useradd -c "gato" -m -d /home/c/gato -g caseros gato
+useradd -c "Bartolomeo" -m -d /home/s/bart -g simpsons bart
+useradd -c "Homero" -m -d /home/s/homer -g simpsons homero
+useradd -c "Liza S." -m -d /home/s/liza -g simpsons liza
+
+crear contraseñas para usuarios
+passwd pato
+- patito
+passwd gato
+- gatito
+passwd bart
+- bart
+passwd homero
+- 123
+passwd liza
+- mafsIPtucCyt2a
+
+modificar usuarios
+cambiar el nombre de usuario a Bart Simpson
+chfn -f "Bart Simpsons" bart
+
+cambiar el sherll de usuario de homero a /bin/sh
+usermod -s "/bin/sh" homero
+
+cambiar el home de pato a /home/c/pato
+usermod -d "/home/c/pato" pato
+
+agregar al usuario gato al grupo insectos
+usermod -G "insectos" gato
